@@ -1,0 +1,192 @@
+{
+  "status": "main-and-A86-radio-installed-and-verified-native-macos-UI-unresolved",
+  "board_evidence": {
+    "family": "K2 V2 supported by photos, controls and bootloader",
+    "layout": "US/ANSI horizontalEnter",
+    "backlight": "RGB",
+    "hot_swappable": false,
+    "rear_height_settings": 2,
+    "physical_PCB_and_boot_pads_verified": true,
+    "installed_Sonix_image_dump_available": false,
+    "pcb_marking_owner_reported": "RGB Ver 1.2/20200515",
+    "physical_PCB_marking_owner_reported": true,
+    "physical_boot_pads_verified": true,
+    "exact_published_PCB_revision_match_verified": false,
+    "physical_boot_pads_visually_identified": true,
+    "PCB_marking_photo_confirmed": true,
+    "bootloader_enumeration_verified": true,
+    "PCB_underside": "CK8887RGB-1.2 / 20200427",
+    "main_controller_marking": "HFD2201KBA",
+    "radio_marking": "CYW20730 A2KFBG"
+  },
+  "scanner": {
+    "image_sha256": "0d5da2541dcc54be0909b6ce9fde79da46a20a45c38aafb3b26e35c7c97e4293",
+    "image_bytes": 65536,
+    "tests_passed": 14,
+    "guard_subcases": 20,
+    "baseline": "publishedV2RGB1.13reference",
+    "device_settings_preservation_verified": false,
+    "flashed": true,
+    "bootloader_programming_verified": true,
+    "programmed_checksum_hex": "0x941d",
+    "CS1_preserved": true,
+    "physical_application_startup_verified": true,
+    "power_saving_measured": false,
+    "wired_typing_owner_confirmed": true,
+    "Bluetooth_typing_owner_confirmed": true,
+    "normal_USB_bcdDevice_hex": "0x0113"
+  },
+  "radio": {
+    "dynamic_sha256": "b3f34bdbe1e5c32ff65707482cbddf621efee8fe705a63e1e7a82f7d8d8806ea",
+    "dynamic_bytes": 14322,
+    "extension_bytes": 440,
+    "component_methods_passed": 15,
+    "boot_methods_passed": 8,
+    "all_valid_percentages_tested": 101,
+    "exact_installed_application_reference": true,
+    "static_section_or_pairing_data_bundled": false,
+    "native_macos_UI_verified": false,
+    "offline_staging_write_cut_states_passed": 14406,
+    "automatic_rollback_from_crashing_application": false,
+    "full_reset_boot_required": true,
+    "hot_loading_supported": false,
+    "watchdog_reset_path_code_verified": true,
+    "physical_watchdog_activation_verified": true,
+    "flashed": true,
+    "EEPROM_programming_verified": true,
+    "initial_A85_boot_guard_declined": true,
+    "initial_patch_active": false,
+    "full_power_cycle_typing_confirmed": true,
+    "phase1_repair": {
+      "candidate_DS_sha256": "272c7f60a926c65dab10685375aadbb94bc1ddaff88ebfedaa00e84dcd69be3f",
+      "candidate_bytes": 14322,
+      "guard_expected_phase": 1,
+      "DS_offset": 32768,
+      "preserves_original_DS_SS100_and_initial_A85_DS": true,
+      "actual_ROM_scatter_loader_heap_tests_passed": 8,
+      "installer_methods_passed": 8,
+      "completed_byte_cuts_tested": 14363,
+      "flashed": true,
+      "programming_started": true,
+      "journal": "private/update-sessions/radio-1793136682451515000.jsonl",
+      "programming_verified": true,
+      "physical_patch_activation_verified": true
+    },
+    "current_custom_build": "A86/20261028",
+    "current_dynamic_sha256": "272c7f60a926c65dab10685375aadbb94bc1ddaff88ebfedaa00e84dcd69be3f",
+    "battery_patch_active": true,
+    "current_DS_offset": 32768,
+    "standard_report_matches_internal_estimate": true,
+    "cold_boot_and_fresh_pair_verified": true
+  },
+  "backup_coverage": {
+    "Bluetooth_ROM_bytes": 327680,
+    "Bluetooth_EEPROM_logical_window_bytes": 65536,
+    "Sonix_installed_flash_backup": false,
+    "EEPROM_marking": "24C512A",
+    "capacity_supported_by_photo_and_full_capture": true,
+    "page_bytes_manufacturer_reference": 128,
+    "physical_writes_verified": false,
+    "independent_in_circuit_restore_verified": false,
+    "post_install_A86_full_EEPROM_bytes": 65536,
+    "post_install_pairing_VS_stable_capture": true
+  },
+  "reviewer": "gpt-6-astra",
+  "flashing_route": "SeparateUSB24xBbootROMscannerupdateandBluetoothOTAEEPROMupdate; nojumploader orApplecontroller",
+  "native_macos_battery_display": "Unverifiedacceptancetest;correctstandardHIDreportincluded",
+  "flashed": true,
+  "device_firmware_settings_RAM_written": true,
+  "bootloader_probe": {
+    "source": "research/probe_sonix_bootloader.c",
+    "compiled": true,
+    "offline_packet_tests_passed": true,
+    "target_usb_id": "0c45:7040",
+    "allowed_commands": [
+      1,
+      6
+    ],
+    "flash_erase_program_security_or_reboot_supported": false
+  },
+  "main_bootloader_identification": {
+    "usb_id": "0c45:7040",
+    "family": "SN32F24xB",
+    "profile_flash_bytes": 65536,
+    "revision": 0,
+    "security_level": 1,
+    "flash_checksum_hex": "0xbba4",
+    "flashed": false,
+    "protection_changed": false,
+    "actual_flash_restore_verified": false
+  },
+  "outstanding_physical_validation": [
+    "Measured main power saving and full charge-to-discharge runtime",
+    "Long idle, wake, all used keys and host-output coverage",
+    "Native macOS Bluetooth battery display/driver eligibility",
+    "Independent radio recovery and exact main reference restore"
+  ],
+  "installers": {
+    "main": {
+      "source": "installers/sonix_installer.c",
+      "hardware_programming_compiled_out": true,
+      "simulated_core_cases_passed": 19,
+      "CLI_cases_passed": 8,
+      "shared_process_lock": true,
+      "program_branch_requires_exclusive_HID": true,
+      "write_enabled_executable_built": true,
+      "authorized_write_capable_build": {
+        "path": "build/k2-sonix-installer-authorized",
+        "sha256": "cd09900ff7efea57bf9b67507652e0ebb5df9b47533de4b8594fbd3ef458963d",
+        "compiled_after_owner_authorization": true,
+        "hardware_flash_executed": true
+      }
+    },
+    "radio": {
+      "source": "installers/radio_installer.py",
+      "hardware_updates_enabled": false,
+      "offline_methods_passed": 15,
+      "fresh_full_private_backup_before_enable": true,
+      "nominal_inactivity_reset_seconds": 10,
+      "unmatched_durable_intent_means_unknown_outcome": true,
+      "candidate_hash_pinned_in_source": true,
+      "program_branch_requires_exclusive_HID": true,
+      "live_read_only_preflight_passed": true,
+      "preflight_evidence": "artifacts/k2-initial-release/radio-read-only-preflight.json",
+      "authorized_variant_built": true,
+      "authorized_variant_sha256": "27436619d4ad3d47cd8954abe4072f4c36fd21d7c6636334f063639bc073496a",
+      "ordinary_exclusive_open_failed_without_enable": "0xe00002c1 kIOReturnNotPrivileged",
+      "admin_helper": "installers/radio_admin_trial.py",
+      "admin_helper_offline_methods_passed": 5,
+      "admin_helper_root_drop_before_update": true,
+      "root_claim_and_privilege_drop_physically_verified": true
+    },
+    "hardware_programming_or_update_enable_executed": true
+  },
+  "review_scope": "Offline emitted firmware, protocol and guarded installers; no physical programming validation",
+  "authorization": {
+    "received_at_utc": "2026-10-27T20:51:27.678179+00:00",
+    "owner_message": "Okay, let's do it.",
+    "active_step": "main CPU-idle A first, then functional validation before radio",
+    "main_settings_reference_defaults_disclosed": true,
+    "radio_recovery_limit_disclosed": true
+  },
+  "macos_battery_publication": {
+    "temporary_BatteryCapacity_set_and_fresh_client_readback_succeeded": true,
+    "native_UI_displayed_percentage": false,
+    "fresh_pair_did_not_solve_UI": true,
+    "temporary_properties_cleared_by_reconnect": true,
+    "background_helper_installed": false
+  },
+  "reader": {
+    "A05_and_A86_supported": true,
+    "A86_extension_SHA256": "6f6f744b898e9787c0d7edab6077a71c73a5087bfdbf3e925dc95657523b33f8",
+    "A86_constructor_and_all15_methods_checked": true,
+    "private_capture_files_required": false
+  },
+  "configuration": {
+    "auto_sleep_disabled_after_owner_shortcut_and_radio_readback": true,
+    "backlight_off_owner_confirmed": true,
+    "native_menu_battery_percentage": false
+  },
+  "current_trial_complete": true,
+  "overall_monthly_runtime_and_native_UI_goals_complete": false
+}

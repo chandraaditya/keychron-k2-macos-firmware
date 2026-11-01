@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-10-27T21:12:36.053110+00:00",
+  "owner_authorized": true,
+  "EEPROM_transaction_returned_success": true,
+  "application_startup_verified": false,
+  "native_macos_UI_verified": false,
+  "candidate_DS_sha256": "b3f34bdbe1e5c32ff65707482cbddf621efee8fe705a63e1e7a82f7d8d8806ea",
+  "exclusive_claim_verified": true,
+  "root_dropped_before_backup_or_enable": true,
+  "journal": "private/update-sessions/radio-1793135303829699000.jsonl"
+}

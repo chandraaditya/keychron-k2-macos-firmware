@@ -1,0 +1,20 @@
+{
+  "at_utc": "2026-10-27T20:56:22.188366+00:00",
+  "phase": "after-main-update-before-radio-update",
+  "standard_report": {
+    "device": "Keychron K2",
+    "raw_battery_percent": 85,
+    "validated": false
+  },
+  "internal_sample": {
+    "device": "Keychron K2",
+    "battery_percent": 85,
+    "source": "firmware_indicator_state",
+    "firmware_build": "20191025",
+    "cached_report_percent": 85,
+    "sensor_average_raw": 1862
+  },
+  "radio_version_unchanged": "A05/20191025",
+  "radio_update_enabled": false,
+  "interpretation": "Standard cache is currently synchronized after restart; this does not establish the source of the previous stale-zero state or correct upward notification handling."
+}

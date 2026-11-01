@@ -1,0 +1,20 @@
+{
+  "at_utc": "2026-10-27T22:59:41.094348+00:00",
+  "offline_only": true,
+  "parent_hardware_write_performed": false,
+  "native_macos_verified": false,
+  "rollback_physical_verification_pending": true,
+  "tests": {
+    "apple_component_methods": 8,
+    "apple_boot_methods": 4,
+    "guard_methods": 5,
+    "data_fixture_methods": 5,
+    "preflight_staging_and_verifier_methods": 8,
+    "admin_helper_methods": 5,
+    "completed_byte_cut_states": 14610
+  },
+  "candidate_hashes": {
+    "radio-rollback-preflight": "efdfece539163056d3f9e2314471c61000fb92ad7da8a63a26fe668b27450bf2",
+    "radio-apple-one-boot": "81cc5983697151df777a9297f1ae3c1d9390677cddec68a66370121f4a5c54c7"
+  }
+}

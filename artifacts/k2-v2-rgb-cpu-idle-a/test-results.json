@@ -1,0 +1,11 @@
+{
+  "test_methods_run": 14,
+  "guard_subcases": 20,
+  "passed": true,
+  "device_access": false,
+  "flashed": false,
+  "wfi": "Intercepted; modeled immediate interrupt return, not physical sleep.",
+  "image_sha256": "0d5da2541dcc54be0909b6ce9fde79da46a20a45c38aafb3b26e35c7c97e4293",
+  "hardware_wakeup_verified": false,
+  "current_draw_measured": false
+}

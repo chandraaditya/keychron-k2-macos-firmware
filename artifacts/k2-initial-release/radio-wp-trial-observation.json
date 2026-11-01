@@ -1,0 +1,15 @@
+{
+  "stage": "trial",
+  "device_access": "read-only",
+  "working_A86_extension_and_methods_verified": true,
+  "SS0_validity_byte": 0,
+  "SS0_DS_offset": 16384,
+  "SS0_matches_invalidated_trial": true,
+  "SS0_matches_committed_trial": false,
+  "SS0_matches_working_A86_header": false,
+  "SS100_validity_byte": 1,
+  "SS100_DS_offset": 32768,
+  "SS100_matches_working_A86_header": true,
+  "running_DS": 16384,
+  "Apple_profile_installed": false
+}

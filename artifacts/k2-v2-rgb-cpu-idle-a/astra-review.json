@@ -1,0 +1,43 @@
+{
+  "reviewer_model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "agent": "astra_firmware_investigation",
+  "date": "2026-10-27",
+  "image_sha256": "0d5da2541dcc54be0909b6ce9fde79da46a20a45c38aafb3b26e35c7c97e4293",
+  "source_sha256": "0c7bb3bddab61d63d9979547d158763452e91f5c1a6e3e1175ad559723d90c76",
+  "verdict": "No blocking defect found for offline packaging. Not clearance to flash.",
+  "independently_checked": [
+    "195 changed bytes confined to hook0798..079b andstubd800..d8d3",
+    "Original handler call precedes guards;24-byte frame aligned; register preservation and returns correct",
+    "Both BL targets and14 literal loads correct",
+    "PMU4 /DSB /WFI /saved PMU restoration sequence correct",
+    "Copied source exact;vectors,original handler,persistent settings andfooter unchanged"
+  ],
+  "flash_write_audit": {
+    "settings": [
+      "0x8000",
+      "0x803f"
+    ],
+    "keymap_selections": [
+      "0x8080",
+      "0x857f"
+    ],
+    "macro_block_starts": [
+      "0x8580",
+      "0x8600",
+      "0x8650",
+      "0x8700"
+    ],
+    "normal_usb_config_max_inclusive": "0xa3ff",
+    "zero_count_usb_case_max_inclusive": "0xd7bf",
+    "gap_before_stub_bytes": 64,
+    "limit": "Bounded code-path analysis and offline replay, not whole-program proof against corruption/undiscovered indirect execution."
+  },
+  "timer_audit": "Stock CT16B1 uses MR24 IE+RESET+STOP. ISR5e8e calls50b6 and5088, which rearms CEN and IRQ16. Guard must accept STOP bit set.",
+  "test_interpretation": "Wrapper control flow and state preservation. Incoming-work test models flag arrival and immediate wake, not physical FIFO/ISR/pre-WFI interleavings.",
+  "hardware_clearance": false,
+  "recovery_verified": false,
+  "power_measured": false,
+  "device_access": false,
+  "flashed": false
+}

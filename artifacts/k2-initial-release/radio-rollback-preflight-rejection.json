@@ -1,0 +1,18 @@
+{
+  "scope": "owner-reported guarded preflight rejection",
+  "error": "EEPROM outside pairing/VS differs from reviewed backup",
+  "journal": "private/update-sessions/radio-1793158640591281000.jsonl",
+  "journal_event_count": 1,
+  "enable_or_write_intent_present": false,
+  "snapshot_saved_by_attempt": false,
+  "changed_bytes_known": false,
+  "Apple_profile_installed": false,
+  "next_step": "read-only diagnostic; no updater retry",
+  "diagnosis": "26 stable bytes in second saved Bluetooth slot record; no firmware/header drift",
+  "diagnostic": "private/radio-preflight-diagnostics/1793159004971469000/result.json",
+  "reviewed_current_reference_sha256": "767dd6fe973c11aa6be53c204cb52330c6b2f78be6bfcb7d31c74bac53afe840",
+  "strict_live_comparison_outside_VS_retained": true,
+  "EEPROM_native_read_chunk_bytes": 16,
+  "modified_candidate_firmware": false,
+  "retry_authorized_by_existing_owner_instruction": true
+}

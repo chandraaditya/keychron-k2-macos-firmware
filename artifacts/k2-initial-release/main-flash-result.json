@@ -1,0 +1,18 @@
+{
+  "at_utc": "2026-10-27T20:52:01.643829+00:00",
+  "owner_authorized": true,
+  "image_sha256": "0d5da2541dcc54be0909b6ce9fde79da46a20a45c38aafb3b26e35c7c97e4293",
+  "mode": "programmed-and-verified",
+  "verified": true,
+  "security": "CS1",
+  "baseline_checksum": 48036,
+  "candidate_checksum": 37917,
+  "image_blocks_sent": 1024,
+  "protection_change_requested": false,
+  "reboot_requested": false,
+  "physical_application_startup_verified": true,
+  "journal": "private/update-sessions/main-1793134314811271000.jsonl",
+  "wired_typing_owner_confirmed": true,
+  "Bluetooth_typing_owner_confirmed": true,
+  "normal_USB_bcdDevice_hex": "0x0113"
+}

@@ -1,0 +1,53 @@
+{
+  "passive_registry_only": true,
+  "devices": [
+    {
+      "IOObjectClass": "IOHIDUserDevice",
+      "VendorID": 76,
+      "VendorIDSource": 1,
+      "ProductID": 615,
+      "PrimaryUsagePage": 65280,
+      "PrimaryUsage": 18,
+      "MultipleInterfaceEnabled": null,
+      "Product_is_Keychron_K2": true,
+      "descriptor_bytes": 22,
+      "descriptor_sha256": "72b22e181a2666679b2de4fabc93185f5149274fa1af75fd1842daed12bfe5da"
+    },
+    {
+      "IOObjectClass": "IOHIDUserDevice",
+      "VendorID": 76,
+      "VendorIDSource": 1,
+      "ProductID": 615,
+      "PrimaryUsagePage": 65280,
+      "PrimaryUsage": 11,
+      "MultipleInterfaceEnabled": null,
+      "Product_is_Keychron_K2": true,
+      "descriptor_bytes": 83,
+      "descriptor_sha256": "7e61a92d4e39af689084e6453fbbf2f4183ffa56eda8c4f0c954b96fa0f0752a"
+    },
+    {
+      "IOObjectClass": "IOHIDUserDevice",
+      "VendorID": 76,
+      "VendorIDSource": 1,
+      "ProductID": 615,
+      "PrimaryUsagePage": 1,
+      "PrimaryUsage": 6,
+      "MultipleInterfaceEnabled": null,
+      "Product_is_Keychron_K2": true,
+      "descriptor_bytes": 182,
+      "descriptor_sha256": "5ad48fbaddbae4d5806c4dbc27c842e535e2954cd140e208494cf4f17fbc47c7"
+    },
+    {
+      "IOObjectClass": "IOHIDUserDevice",
+      "VendorID": 76,
+      "VendorIDSource": 1,
+      "ProductID": 615,
+      "PrimaryUsagePage": 65280,
+      "PrimaryUsage": 3,
+      "MultipleInterfaceEnabled": null,
+      "Product_is_Keychron_K2": true,
+      "descriptor_bytes": 27,
+      "descriptor_sha256": "2ec9280f2d48fb4b5b174388f75e4d2cf67f1e810376487c7d9569d5b0c7de76"
+    }
+  ]
+}

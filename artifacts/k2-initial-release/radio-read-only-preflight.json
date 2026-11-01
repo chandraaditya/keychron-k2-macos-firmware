@@ -1,0 +1,21 @@
+{
+  "observed_at_utc": "2026-10-27T20:47:50.175800+00:00",
+  "mode": "read-only-preflight",
+  "passed": true,
+  "source_sha256_at_check": "833a093bb35b533c082aaa6f35c2a9f2b45f047f9ea6a9f7cafc33a3021607e8",
+  "checks": [
+    "A05/20191025 identity",
+    "reviewed RAM code/table fingerprints",
+    "dynamic updater object and timer state",
+    "EEPROM storage mode and write boundary",
+    "full64KiB read matches reviewed capture outside current VS"
+  ],
+  "update_enabled": false,
+  "flashed": false,
+  "allowed_live_report_IDs": [
+    "0x71 SETUP_READ",
+    "0x72 READ"
+  ],
+  "fresh_backup_saved": false,
+  "note": "Records successful native --check output; preflight does not enable updates or save a session backup."
+}

@@ -1,0 +1,39 @@
+{
+  "A89_active": true,
+  "extension_and_GET_SET_methods_verified": true,
+  "trial_SS0_invalidated": true,
+  "backup_SS100_selects_A86": true,
+  "battery_estimate": 82,
+  "firmware_writes": false,
+  "firmware_SDP_bytes": 1053,
+  "firmware_SDP_override_verified": true,
+  "active_pairing_slot": 1,
+  "published_raw_interface": {
+    "VendorID": 76,
+    "VendorIDSource": 1,
+    "ProductID": 615,
+    "PrimaryUsagePage": 65280,
+    "PrimaryUsage": 18,
+    "descriptor_bytes": 22,
+    "descriptor_sha256": "72b22e181a2666679b2de4fabc93185f5149274fa1af75fd1842daed12bfe5da"
+  },
+  "keyboard_configuration_verified": true,
+  "published_management_interface": {
+    "VendorID": 76,
+    "VendorIDSource": 1,
+    "ProductID": 615,
+    "PrimaryUsagePage": 65280,
+    "PrimaryUsage": 11,
+    "descriptor_bytes": 83,
+    "descriptor_sha256": "7e61a92d4e39af689084e6453fbbf2f4183ffa56eda8c4f0c954b96fa0f0752a"
+  },
+  "Input90": {
+    "percent": 82,
+    "status_flags": 0,
+    "valid_percent": true
+  },
+  "native_management_services": [],
+  "native_volume_mapping_published": false,
+  "native_widget_visibility_verified": false,
+  "physical_volume_and_Fn_behavior_verified": false
+}

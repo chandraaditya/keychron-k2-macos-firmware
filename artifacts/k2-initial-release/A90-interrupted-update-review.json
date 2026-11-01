@@ -1,0 +1,18 @@
+{
+  "interrupted_update": true,
+  "candidate": "A90",
+  "candidate_activation_committed": false,
+  "journal_has_commit_event": false,
+  "verified_staging_bytes": 8016,
+  "last_write_offset": "0x5f50",
+  "last_write_bytes": 14,
+  "last_write_now_matches_saved_backup": true,
+  "all_attempted_payloads_identical_to_previous_image_in_this_prefix": true,
+  "write_intents_only_in_inactive_bank": true,
+  "running_firmware": "A86",
+  "runtime_verified": true,
+  "owner_confirms_normal_typing": true,
+  "firmware_writes_this_check": false,
+  "automatic_retry_performed": false,
+  "timeout_cause": "not yet established"
+}

@@ -1,0 +1,11 @@
+{
+  "device_access": false,
+  "physical_WP_trial_passed": false,
+  "native_macos_verified": false,
+  "guard_methods_passed": 9,
+  "staging_methods_passed": 6,
+  "completed_byte_interruption_states": 14597,
+  "neutral_candidate_sha256": "9994716588b3c9309c219c807d6c99fb797341d8229077d59c5ab64c27b2d5ff",
+  "Apple_candidate_sha256": "a9e1a7af26709794e3023518e0f192f60c0c8dbfe72ce4c9f4ba93715ffdb7a6",
+  "isolated_checked_source_load_passed": true
+}

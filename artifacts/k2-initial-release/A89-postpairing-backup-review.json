@@ -1,0 +1,10 @@
+{
+  "A89_active": true,
+  "firmware_writes": false,
+  "snapshot": "private/A89-postpairing-captures/1793176125365849000/eeprom.bin",
+  "sha256": "b0824a4b3c6195c9e510bcf8fa9fb3bfa057d6171c5977cfcb112058549574e5",
+  "outside_VS_changed_bytes": 17,
+  "changed_outside_VS_limited_to_repaired_slot0": true,
+  "changed_chunks_stable": true,
+  "protected_code_and_headers_match": true
+}

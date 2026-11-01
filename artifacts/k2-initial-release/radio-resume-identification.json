@@ -1,0 +1,9 @@
+{
+  "running_firmware": "A88",
+  "runtime_verified": true,
+  "running_bank": "0x4000",
+  "trial_boot_entry_invalid": true,
+  "A86_fallback_entry_valid": true,
+  "update_enabled": false,
+  "firmware_writes": false
+}

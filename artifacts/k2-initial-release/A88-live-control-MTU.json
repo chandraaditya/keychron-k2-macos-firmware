@@ -1,0 +1,8 @@
+{
+  "read_only": true,
+  "global_cap": 48,
+  "control_CID": 65,
+  "control_channel_CB": "0x2025d8",
+  "control_channel_in_use": 1,
+  "control_channel_outgoing_MTU": 48
+}

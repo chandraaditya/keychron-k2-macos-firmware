@@ -1,0 +1,9 @@
+{
+  "resume_firmware_verified": "A87",
+  "normal_owner_exclusive_claim_verified": true,
+  "root_privileges_used": false,
+  "candidate_sha256": "b379a195e36de62c59a1e6baea2a727a48a33010ba37e9aede7fbd8fe9d7adae",
+  "candidate_bytes": 16027,
+  "native_runtime_UI_verification_pending": true,
+  "unchanged_physical_recovery_prefix": true
+}

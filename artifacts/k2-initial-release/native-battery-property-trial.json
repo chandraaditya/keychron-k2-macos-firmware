@@ -1,0 +1,16 @@
+{
+  "validated_percent": 87,
+  "setter": {
+    "battery_trial_setter_success": true,
+    "local_readback_present": true,
+    "battery_percent": 87,
+    "cleanup_requires_Bluetooth_service_reconnect": true
+  },
+  "fresh_client_readback": "Transient bridge probe in fresh client: present.\nK2 HID service: serial identifier present; BatteryCapacity present.\nPublished BatteryCapacity: 87\nMatching K2 HID services: 1. No properties were changed.\n",
+  "native_UI_observed": false,
+  "cleanup_pending_Bluetooth_service_reconnect": false,
+  "user_confirmed_no_percentage_after_property_set": true,
+  "user_confirmed_no_percentage_after_fresh_pair": true,
+  "cleanup_verified_probe_and_BatteryCapacity_absent": true,
+  "post_reconnect_service_probe": "Transient bridge probe in fresh client: absent.\nK2 HID service: serial identifier present; BatteryCapacity absent.\nMatching K2 HID services: 1. No properties were changed.\n"
+}

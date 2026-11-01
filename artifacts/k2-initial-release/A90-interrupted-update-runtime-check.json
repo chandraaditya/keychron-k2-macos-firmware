@@ -1,0 +1,8 @@
+{
+  "running_firmware": "A86",
+  "runtime_verified": true,
+  "running_bank": "0x8000",
+  "trial_header_invalid": true,
+  "A86_backup_header_matches": true,
+  "firmware_writes": false
+}

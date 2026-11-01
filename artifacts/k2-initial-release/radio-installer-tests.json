@@ -1,0 +1,10 @@
+{
+  "methods_run": 15,
+  "passed": true,
+  "hardware_updates_enabled": false,
+  "device_access": false,
+  "flashed": false,
+  "source_sha256": "1ae3085ef7b41a7ba68f30b9fdc6e9b269c82d87f3791e93b6bc02ab91f50d10",
+  "candidate_sha256": "b3f34bdbe1e5c32ff65707482cbddf621efee8fe705a63e1e7a82f7d8d8806ea",
+  "limits": "Memory transport; no electrical interruption, HID timing or physical reset validation."
+}

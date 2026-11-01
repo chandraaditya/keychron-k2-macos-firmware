@@ -1,0 +1,30 @@
+{
+  "A87_active": true,
+  "extension_and_methods_verified": true,
+  "trial_SS0_invalidated": true,
+  "backup_SS100_selects_A86": true,
+  "battery_estimate": 87,
+  "firmware_writes": false,
+  "firmware_SDP_bytes": 1053,
+  "firmware_SDP_override_verified": true,
+  "active_pairing_slot": 1,
+  "published_HID_profile": {
+    "VendorID": 1452,
+    "VendorIDSource": 2,
+    "ProductID": 591,
+    "PrimaryUsagePage": 1,
+    "PrimaryUsage": 6,
+    "descriptor_bytes": 323,
+    "descriptor_sha256": "698b58f65b637aeb3408c1409335be1e10058c8159e4a960e9d8d88569a151a8"
+  },
+  "Input90": {
+    "percent": 87,
+    "status_flags": 0,
+    "valid_percent": true
+  },
+  "Feature34": {
+    "error": "Report34 failed or had unexpected length: statuse00002bc"
+  },
+  "native_management_services": [],
+  "native_widget_visibility_verified": false
+}

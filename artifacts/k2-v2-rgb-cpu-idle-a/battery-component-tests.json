@@ -1,0 +1,16 @@
+{
+  "scope": "Isolated Bluetooth battery component, emulator only; no physical placement, boot hook or persistent update image",
+  "source_sha256": "9ec446721e66662f3f2623b2febb533ed4d5ab3cd35377e9b0bf6945af269273",
+  "test_methods": 15,
+  "all_percentage_values_tested": 101,
+  "passed": true,
+  "code_and_literals_bytes": 312,
+  "allocated_shadow_table_state_bytes": 68,
+  "model_base_not_physical_allocation": "0x20e000",
+  "real_rom_getter_and_elapsed_helper_executed": true,
+  "allocator_and_transport_mocked": true,
+  "macos_ui_verified": false,
+  "firmware_image_produced": false,
+  "device_access": false,
+  "flashed": false
+}

@@ -1,0 +1,11 @@
+{
+  "methods_run": 8,
+  "passed": true,
+  "completed_byte_cuts": 14363,
+  "device_access": false,
+  "flashed": false,
+  "source_sha256": "3ecec73dc044091c81b097bd64ac80153c113fc7b25e561a094b201375d2f08a",
+  "candidate_sha256": "272c7f60a926c65dab10685375aadbb94bc1ddaff88ebfedaa00e84dcd69be3f",
+  "target_DS": 32768,
+  "preserves_original_DS_and_SS100_and_A85_DS": true
+}

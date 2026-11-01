@@ -1,0 +1,50 @@
+{
+  "candidate": "k2-v2-rgb-cpu-idle-a",
+  "status": "offline-experimental-not-cleared-for-flashing",
+  "base_sha256": "256b602f7661c924c614a622f29add82e7acde51af93a7c0afbac17ffaf9ad54",
+  "image_sha256": "0d5da2541dcc54be0909b6ce9fde79da46a20a45c38aafb3b26e35c7c97e4293",
+  "source_sha256": "0c7bb3bddab61d63d9979547d158763452e91f5c1a6e3e1175ad559723d90c76",
+  "image_size": 65536,
+  "hook": 1944,
+  "original_handler": 404,
+  "stub_start": 55296,
+  "stub_size": 212,
+  "changed_byte_count": 195,
+  "symbols": {
+    "original_call": 55298,
+    "idle_done": 55450,
+    "idle_wfi": 55446,
+    "code_end": 55452,
+    "cpu_idle_a": 55296
+  },
+  "hook_before": "fff7fcfc",
+  "hook_after": "0df032f8",
+  "allowed_change_ranges_end_exclusive": [
+    [
+      1944,
+      1948
+    ],
+    [
+      55296,
+      55508
+    ]
+  ],
+  "persistent_region_preserved": [
+    "0x7000",
+    "0xa400"
+  ],
+  "binary_inverse_patch_verified": true,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "device_access": false,
+  "flashed": false,
+  "installed_image_match_verified": false,
+  "hardware_wake_verified": false,
+  "power_savings_measured": false,
+  "compatibility_evidence": "Owner reports two rear height settings, supporting K2 V2; installed Sonix image not captured.",
+  "limitations": [
+    "Published V2 RGB 1.13 reference; not a dump of this keyboard.",
+    "No radio firmware or macOS battery reporting change.",
+    "No verified board recovery route or hardware current measurement.",
+    "Emulation does not model real sleep, timing, electrical interrupts or flash boot checks."
+  ]
+}

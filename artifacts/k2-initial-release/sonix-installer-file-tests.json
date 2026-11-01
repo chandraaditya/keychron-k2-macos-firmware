@@ -1,0 +1,8 @@
+{
+  "file_only_cases_passed": 8,
+  "candidate_sha256": "0d5da2541dcc54be0909b6ce9fde79da46a20a45c38aafb3b26e35c7c97e4293",
+  "native_binary_sha256": "faf3bc0787d2090ad74492a4bb598c4e9a956ec2dfe8cc53b1290c0bf3735fba",
+  "hardware_programming_compiled_out": true,
+  "device_access": false,
+  "flashed": false
+}

@@ -1,0 +1,7 @@
+{
+  "methods_run": 5,
+  "passed": true,
+  "device_access": false,
+  "privileged_execution": false,
+  "admin_helper_sha256": "204ecf9fb1795d79d98d1e30d693fe5f4d384412bf5dd5590e72aab4fb2f0df3"
+}

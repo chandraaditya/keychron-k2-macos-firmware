@@ -1,0 +1,13 @@
+{
+  "identity": "A85/20261027",
+  "hook_hex": "01f06afc",
+  "arena": "0x209014",
+  "observed_running_phase": 3,
+  "battery_vtable": "0x4c2f4",
+  "extension_different_bytes": 438,
+  "extension_pattern": "EF stack watermark",
+  "original_battery_methods_active": true,
+  "watchdog_and_full_power_cycle_both_failed_to_install_patch": true,
+  "keyboard_typing_owner_confirmed": true,
+  "root_cause": "Real ROM scatter initialization sets phase1 before DS callback; original emulator manually seededphase0 and missed this."
+}

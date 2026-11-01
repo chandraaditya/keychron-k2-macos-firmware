@@ -1,0 +1,11 @@
+{
+  "candidate": "A90",
+  "committed_and_verified": true,
+  "application_changed_bytes": 12,
+  "activation_changed_bytes": 1,
+  "activation_after_complete_image_verification": true,
+  "maximum_traced_request_seconds": 0.10138329100004739,
+  "all_traced_requests_successful": true,
+  "application_startup_verified": false,
+  "native_macos_UI_verified": false
+}

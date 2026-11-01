@@ -1,0 +1,17 @@
+{
+  "passive_registry_only": true,
+  "devices": [
+    {
+      "class": "IOHIDUserDevice",
+      "Product_is_Keychron_K2": true,
+      "VendorID": 1452,
+      "VendorIDSource": 2,
+      "ProductID": 591,
+      "PrimaryUsagePage": 1,
+      "PrimaryUsage": 6,
+      "descriptor_bytes": 323,
+      "descriptor_sha256": "698b58f65b637aeb3408c1409335be1e10058c8159e4a960e9d8d88569a151a8",
+      "MultipleInterfaceEnabled": null
+    }
+  ]
+}

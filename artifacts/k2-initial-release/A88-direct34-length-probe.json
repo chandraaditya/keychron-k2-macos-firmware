@@ -1,0 +1,12 @@
+{
+  "read_only": true,
+  "stopped_on_first_error": true,
+  "results": [
+    {
+      "requested_bytes": 10,
+      "status": "0xe00002bc",
+      "returned_bytes": 10,
+      "first_four_bytes": "34000000"
+    }
+  ]
+}

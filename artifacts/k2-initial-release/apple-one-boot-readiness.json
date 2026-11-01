@@ -1,0 +1,11 @@
+{
+  "recovery_trial_physically_verified": true,
+  "power_cycle_fallback_physically_verified": true,
+  "typing_owner_confirmed_in_both_states": true,
+  "Apple_trial_candidate_sha256": "a9e1a7af26709794e3023518e0f192f60c0c8dbfe72ce4c9f4ba93715ffdb7a6",
+  "physical_native_display_verified": false,
+  "Apple_installer_tests_passed": 7,
+  "completed_byte_cut_states": 15784,
+  "readonly_verifier_tests_passed": 4,
+  "source_pins_and_isolated_loader_verified": true
+}

@@ -1,0 +1,14 @@
+{
+  "custom_build": "A86/20261028",
+  "extension_and_constructor_hook_verified": true,
+  "shadow_battery_methods_verified": true,
+  "firmware_indicator_estimate_percent": 87,
+  "read_only": true,
+  "native_macos_UI_verified": false,
+  "radio_auto_sleep_disabled": true,
+  "standard_battery_read_returncode": 0,
+  "standard_battery_percent": 87,
+  "standard_report_matches_internal_sample": true,
+  "at_utc": "2026-10-27T21:52:16.544513+00:00",
+  "after_full_power_cycle_and_fresh_pair": true
+}

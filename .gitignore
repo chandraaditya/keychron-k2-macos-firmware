@@ -1,0 +1,8 @@
+build/
+private/
+__pycache__/
+*.pyc
+.DS_Store
+# Built from Keychron's firmware image; not ours to redistribute.
+artifacts/k2-v2-rgb-cpu-idle-a/candidate.bin
+artifacts/k2-v2-rgb-cpu-idle-a/disassembly.txt

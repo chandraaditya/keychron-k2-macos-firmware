@@ -1,0 +1,14 @@
+{
+  "stage": "fallback",
+  "passed": true,
+  "device_access": "read-only",
+  "working_A86_extension_and_methods_verified": true,
+  "trial_SS0_invalidated": true,
+  "backup_SS100_selects_A86": true,
+  "running_DS": 32768,
+  "battery_estimate": 84,
+  "native_macos_verified": false,
+  "Apple_profile_installed": false,
+  "corrected_WP_trial": true,
+  "candidate_DS_sha256": "9994716588b3c9309c219c807d6c99fb797341d8229077d59c5ab64c27b2d5ff"
+}
