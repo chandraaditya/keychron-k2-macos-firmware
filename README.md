@@ -35,12 +35,12 @@ between scan interrupts. Its power saving is unmeasured.
 
 ## About the battery percentage
 
-**The battery reading is an estimate, and not an accurate one.** The K2's battery pack has
-only two leads, + and −. There is no fuel-gauge chip, temperature sensor or ID line, so the
-keyboard can only guess the charge from the battery voltage. That voltage sags under load,
-recovers at rest, and is nearly flat across the middle of the discharge curve. Expect the
-percentage to jump around, read high or low, and drop quickly near the end. Use it as a
-rough indicator only.
+**The battery reading is an estimate, and not an accurate one.** The K2's board has no
+fuel-gauge chip, so the keyboard can only guess the charge from the battery voltage. (Two
+battery wires are not the limit: Apple's batteries also have two, but their boards count
+the current in and out.) Battery voltage sags under load, recovers at rest, and is nearly
+flat across the middle of the discharge curve. Expect the percentage to jump around, read
+high or low, and drop quickly near the end. Use it as a rough indicator only.
 
 ## This is not a one-click installer
 
