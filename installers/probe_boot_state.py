@@ -20,7 +20,9 @@ with prev.RecoveryHID(plan) as io:
     print('selected DS', hex(struct.unpack('<I', io.read(0x205e1c, 4))[0]))
     ss0 = io.read(0xff000000, 40)
     print('SS0 byte0', ss0[0], 'rest==A9x header', ss0[1:] == plan.new_ss[1:])
-    print('SS100 intact', io.read(0xff000100, 40) == plan.backup_ss)
+    ss100 = io.read(0xff000100, 40)
+    print('SS100 intact A86 header', ss100 == plan.backup_ss,
+          '| SS100 is the A94 header (A94 is default)', ss100 == plan.new_ss)
     print('bank 4000 holds A94', io.read(0xff004000, len(a94)) == a94)
     obj = struct.unpack('<I', io.read(0x208ea8, 4))[0]
     table = struct.unpack('<I', io.read(obj, 4))[0]

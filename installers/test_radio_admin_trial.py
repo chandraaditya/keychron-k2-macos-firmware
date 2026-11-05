@@ -83,6 +83,8 @@ class Tests(unittest.TestCase):
         self.assertEqual(hashlib.sha256((admin.ROOT/'installers/radio_c6_trial.py').read_bytes()).hexdigest(),admin.EXPECTED_C6_TRIAL_SHA)
     def test_rearm_trial_source_pin_matches(self):
         self.assertEqual(hashlib.sha256((admin.ROOT/'installers/radio_rearm_trial.py').read_bytes()).hexdigest(),admin.EXPECTED_REARM_TRIAL_SHA)
+    def test_make_default_source_pin_matches(self):
+        self.assertEqual(hashlib.sha256((admin.ROOT/'installers/radio_make_default.py').read_bytes()).hexdigest(),admin.EXPECTED_MAKE_DEFAULT_SHA)
     def test_unprivileged_cli_stops_before_open(self):
         if admin.os.geteuid()==0:self.skipTest('Owner-side refusal case requires non-root')
         result=subprocess.run(['/usr/bin/python3','-I',str(Path(admin.__file__)),'--apply'],capture_output=True,text=True)

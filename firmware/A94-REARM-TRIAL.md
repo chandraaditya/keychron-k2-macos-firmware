@@ -103,3 +103,26 @@ SS0 byte 0 and died before the Mac read F1, so the next power-on booted A86. A94
 intact in bank 0x4000. New mode `--reactivate`: A86 running from 0x8000, bank holding A94,
 byte 0 = 0. It writes only byte 0 = 1 (journal `radio-1793858974158797000`). After the
 reset: A94, byte 0 = 1, flag 2. Read-only state check: `python3 installers/probe_boot_state.py`.
+
+## Making A94 the default (prepared 2026-11-05, not yet installed)
+
+A flat battery will trigger the A86 fallback again. Owner's choice: make A94 the
+only boot target instead of adding a boot counter.
+
+- **ROM evidence** (`research/test_radio_section_select.py`, 4 tests): runs the
+  captured ROM's own scan 0x1CEF8. It tries headers at 0, 0x100, 0x200 … 0x4000; the
+  first valid one wins. Validity is type 1 plus a checksum over bytes 3–10 only. The
+  DS address comes from that header's own type-2 record (offset 30). Both observed
+  hardware boots are reproduced. With SS100 byte 31 = 0x40, an invalid SS0 boots
+  0x4000 from SS100.
+- **Installer** `installers/radio_make_default.py` (`--make-default`, 7 tests):
+  precondition A94 from 0x4000 with SS0 armed and SS100 = the A86 header. It writes
+  only 0x11F = 0x40, so SS100 becomes identical to the A94 header. A86 stays at
+  0x8000, but nothing selects it.
+  - `--repair-default`: for a cut-off write, sets 0x40 whatever byte 31 holds now.
+  - `--undo-default`: writes 0x80 back; the next boot is A86, then `--reactivate`.
+- **Expected probe afterwards:** A94, DS 0x4000, SS0 byte 0 = 0 after the first
+  reboot, SS100 = the A94 header, re-arm flag 1. A94 declines to re-arm a layout it
+  did not install, and that is fine.
+- **Residual risk:** no automatic fallback. If A94 ever stops booting, recovery needs
+  an external EEPROM programmer.

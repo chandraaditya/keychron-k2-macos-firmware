@@ -26,7 +26,10 @@ EXPECTED_FROW_TRIAL_SHA='0377c5cfedd96333fffa36285ca9fbbb8c5d973d85322dd700a818d
 EXPECTED_FN_TRIAL_SHA='654fe4681b5065d7bdb9a1e204c1f6c205e37f731d1e47e65c76e9b6865097e3'
 EXPECTED_C6_TRIAL_SHA='91da3f425cae7939317ab6a25c3f5eedc445dbf5a99b4c2c78fb74f73f9583e2'
 EXPECTED_REARM_TRIAL_SHA='3f98a825b587269f6240b4a921960764f3984fe4dccda2c8a195067c51662b5a'
+EXPECTED_MAKE_DEFAULT_SHA='f16462b0dfacc28203810c01bb7d2de874b30a6ceb2b32f2a2fee00105634f49'
+DEFAULT_MODES={'--make-default':'make-default','--undo-default':'undo-default','--repair-default':'repair-default'}
 REARM_MODES={'--apply-rearm-trial':'install','--rearm-a93':'rearm-a93','--rearm':'rearm','--unarm':'unarm','--reactivate':'reactivate'}
+CHAIN_MODES={**REARM_MODES,**DEFAULT_MODES}
 EXPECTED_MTU_TRIAL_SHA='ca8d5f90bd7961eae6a8c8e192798de98e210ec6df3a111417a84d86fdf840ce'
 EXPECTED_KEYBOARD_CONFIG_TRIAL_SHA='72a9ee54c88019652590bec7c538df4e6a970f7db21e79fe6327e49f8118eb01'
 EXPECTED_KEYHOLE_TRIAL_SHA='0e7ae7b3cfc6e65fde14e1d1c25eadb09b918021072a5bcc237ac3d4674095a1'
@@ -91,8 +94,8 @@ def apply_trial(runtime,owner_uid,owner_gid):
 
 
 def main():
-    if sys.argv[1:]not in (['--apply'],['--apply-phase1'],['--apply-rollback-preflight'],['--apply-wp-trial'],['--apply-apple-trial'],['--apply-keyhole-trial'],['--apply-keyboard-config-trial'],['--apply-mtu-trial'],['--apply-mtu-recovery'],['--apply-frow-trial'],['--apply-fn-trial'],['--apply-c6-trial'])and not(len(sys.argv)==2 and sys.argv[1] in REARM_MODES):
-        print('Usage: radio_admin_trial.py --apply|--apply-phase1|--apply-rollback-preflight|--apply-wp-trial|--apply-apple-trial|--apply-keyhole-trial|--apply-keyboard-config-trial|--apply-mtu-trial|--apply-mtu-recovery|--apply-frow-trial|--apply-fn-trial|--apply-c6-trial|--apply-rearm-trial|--rearm-a93|--rearm|--unarm|--reactivate',file=sys.stderr);return 2
+    if sys.argv[1:]not in (['--apply'],['--apply-phase1'],['--apply-rollback-preflight'],['--apply-wp-trial'],['--apply-apple-trial'],['--apply-keyhole-trial'],['--apply-keyboard-config-trial'],['--apply-mtu-trial'],['--apply-mtu-recovery'],['--apply-frow-trial'],['--apply-fn-trial'],['--apply-c6-trial'])and not(len(sys.argv)==2 and sys.argv[1] in CHAIN_MODES):
+        print('Usage: radio_admin_trial.py --apply|--apply-phase1|--apply-rollback-preflight|--apply-wp-trial|--apply-apple-trial|--apply-keyhole-trial|--apply-keyboard-config-trial|--apply-mtu-trial|--apply-mtu-recovery|--apply-frow-trial|--apply-fn-trial|--apply-c6-trial|--apply-rearm-trial|--rearm-a93|--rearm|--unarm|--reactivate|--make-default|--undo-default|--repair-default',file=sys.stderr);return 2
     if not sys.flags.isolated:
         raise RuntimeError('Use the isolated system interpreter; no device opened')
     if os.getuid()!=0 or os.geteuid()!=0:
@@ -126,7 +129,7 @@ def main():
         apple=load_checked_module('radio_apple_trial',ROOT/'installers/radio_apple_trial.py',EXPECTED_APPLE_TRIAL_SHA,owner_uid)
         runtime.ALLOW_HARDWARE_UPDATES=True
         runtime=apple.runtime_view()
-    elif sys.argv[1] in ('--apply-keyhole-trial','--apply-keyboard-config-trial','--apply-mtu-trial','--apply-mtu-recovery','--apply-frow-trial','--apply-fn-trial','--apply-c6-trial',*REARM_MODES):
+    elif sys.argv[1] in ('--apply-keyhole-trial','--apply-keyboard-config-trial','--apply-mtu-trial','--apply-mtu-recovery','--apply-frow-trial','--apply-fn-trial','--apply-c6-trial',*CHAIN_MODES):
         load_checked_module('radio_rollback_preflight',ROOT/'installers/radio_rollback_preflight.py',EXPECTED_ROLLBACK_PREFLIGHT_SHA,owner_uid)
         load_checked_module('radio_wp_trial',ROOT/'installers/radio_wp_trial.py',EXPECTED_WP_TRIAL_SHA,owner_uid)
         load_checked_module('radio_apple_trial',ROOT/'installers/radio_apple_trial.py',EXPECTED_APPLE_TRIAL_SHA,owner_uid)
@@ -134,27 +137,31 @@ def main():
         keyhole=load_checked_module('radio_keyhole_trial',ROOT/'installers/radio_keyhole_trial.py',EXPECTED_KEYHOLE_TRIAL_SHA,owner_uid)
         runtime.ALLOW_HARDWARE_UPDATES=True
         runtime=keyhole.runtime_view()
-        if sys.argv[1] in ('--apply-keyboard-config-trial','--apply-mtu-trial','--apply-mtu-recovery','--apply-frow-trial','--apply-fn-trial','--apply-c6-trial',*REARM_MODES):
+        if sys.argv[1] in ('--apply-keyboard-config-trial','--apply-mtu-trial','--apply-mtu-recovery','--apply-frow-trial','--apply-fn-trial','--apply-c6-trial',*CHAIN_MODES):
             keyboard=load_checked_module('radio_keyboard_config_trial',ROOT/'installers/radio_keyboard_config_trial.py',EXPECTED_KEYBOARD_CONFIG_TRIAL_SHA,owner_uid)
             runtime=keyboard.runtime_view()
-            if sys.argv[1] in ('--apply-mtu-trial','--apply-mtu-recovery','--apply-frow-trial','--apply-fn-trial','--apply-c6-trial',*REARM_MODES):
+            if sys.argv[1] in ('--apply-mtu-trial','--apply-mtu-recovery','--apply-frow-trial','--apply-fn-trial','--apply-c6-trial',*CHAIN_MODES):
                 mtu=load_checked_module('radio_mtu_trial',ROOT/'installers/radio_mtu_trial.py',EXPECTED_MTU_TRIAL_SHA,owner_uid)
                 runtime=mtu.runtime_view()
-                if sys.argv[1] in ('--apply-mtu-recovery','--apply-frow-trial','--apply-fn-trial','--apply-c6-trial',*REARM_MODES):
+                if sys.argv[1] in ('--apply-mtu-recovery','--apply-frow-trial','--apply-fn-trial','--apply-c6-trial',*CHAIN_MODES):
                     recovery=load_checked_module('radio_mtu_recovery',ROOT/'installers/radio_mtu_recovery.py',EXPECTED_MTU_RECOVERY_SHA,owner_uid)
                     runtime=recovery.runtime_view()
-                    if sys.argv[1] in ('--apply-frow-trial','--apply-fn-trial','--apply-c6-trial',*REARM_MODES):
+                    if sys.argv[1] in ('--apply-frow-trial','--apply-fn-trial','--apply-c6-trial',*CHAIN_MODES):
                         frow=load_checked_module('radio_frow_trial',ROOT/'installers/radio_frow_trial.py',EXPECTED_FROW_TRIAL_SHA,owner_uid)
                         runtime=frow.runtime_view()
-                        if sys.argv[1] in ('--apply-fn-trial','--apply-c6-trial',*REARM_MODES):
+                        if sys.argv[1] in ('--apply-fn-trial','--apply-c6-trial',*CHAIN_MODES):
                             fn=load_checked_module('radio_fn_trial',ROOT/'installers/radio_fn_trial.py',EXPECTED_FN_TRIAL_SHA,owner_uid)
                             runtime=fn.runtime_view()
-                            if sys.argv[1] in ('--apply-c6-trial',*REARM_MODES):
+                            if sys.argv[1] in ('--apply-c6-trial',*CHAIN_MODES):
                                 c6=load_checked_module('radio_c6_trial',ROOT/'installers/radio_c6_trial.py',EXPECTED_C6_TRIAL_SHA,owner_uid)
                                 runtime=c6.runtime_view()
-                                if sys.argv[1] in REARM_MODES:
+                                if sys.argv[1] in CHAIN_MODES:
                                     rearm=load_checked_module('radio_rearm_trial',ROOT/'installers/radio_rearm_trial.py',EXPECTED_REARM_TRIAL_SHA,owner_uid)
-                                    runtime=rearm.runtime_view(REARM_MODES[sys.argv[1]])
+                                    if sys.argv[1] in DEFAULT_MODES:
+                                        default=load_checked_module('radio_make_default',ROOT/'installers/radio_make_default.py',EXPECTED_MAKE_DEFAULT_SHA,owner_uid)
+                                        runtime=default.runtime_view(DEFAULT_MODES[sys.argv[1]])
+                                    else:
+                                        runtime=rearm.runtime_view(REARM_MODES[sys.argv[1]])
     signal.signal(signal.SIGALRM,signal.SIG_DFL)
     apply_trial(runtime,owner_uid,owner_gid)
     return 0
