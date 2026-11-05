@@ -41,11 +41,8 @@ A meter averages the radio's millisecond pulses well enough for this.
 - Turn the lighting off first. RGB at full brightness can exceed a meter's mA fuse.
 - Use the mA range (200/400 mA), not µA. The µA shunt drops too much voltage, and the
   radio can brown out.
-- Every disconnect reboots the keyboard. Under A94 that's fine while the Mac's Bluetooth is
-  on; it re-arms on reconnect. For measurement 4, turn the Mac's Bluetooth off while the K2
-  is already running; that boot has already re-armed. If the K2 reboots while the Mac's
-  Bluetooth is off, turn Bluetooth back on and let it reconnect before switching the K2
-  off. Otherwise the next power-on goes to A86.
+- Every disconnect reboots the keyboard. Since `--make-default` (2026-11-05) every boot
+  is A94, so reboots during measurement are harmless, with or without the Mac's Bluetooth.
 
 ## Data point: 22% then dead overnight (2026-11-04/05)
 
