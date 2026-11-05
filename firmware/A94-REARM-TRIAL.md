@@ -104,7 +104,7 @@ intact in bank 0x4000. New mode `--reactivate`: A86 running from 0x8000, bank ho
 byte 0 = 0. It writes only byte 0 = 1 (journal `radio-1793858974158797000`). After the
 reset: A94, byte 0 = 1, flag 2. Read-only state check: `python3 installers/probe_boot_state.py`.
 
-## Making A94 the default (prepared 2026-11-05, not yet installed)
+## Making A94 the default (installed 2026-11-05)
 
 A flat battery will trigger the A86 fallback again. Owner's choice: make A94 the
 only boot target instead of adding a boot counter.
@@ -126,3 +126,8 @@ only boot target instead of adding a boot counter.
   did not install, and that is fine.
 - **Residual risk:** no automatic fallback. If A94 ever stops booting, recovery needs
   an external EEPROM programmer.
+
+Installed 2026-11-05 07:03 UTC (journal `radio-1793861910959936000`): write and
+readback of 0x11F verified. After the reset: A94, SS0 byte 0 = 0, SS100 = the A94
+header, flag 1. The owner then power-cycled. With SS0 invalid, that boot could only
+come from SS100: the probe showed A94 from 0x4000, and the owner confirmed the keys.

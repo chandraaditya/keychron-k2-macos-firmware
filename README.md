@@ -26,6 +26,12 @@ which keyboard this is for.
   a second EEPROM slot. The new firmware marks itself bootable again only after the Mac has
   connected and read its key map. If it breaks before that, the next power-on falls back to
   the original firmware automatically.
+  - Catch: a flat battery can also trigger that fallback. The radio browns out and
+    reboots, and one boot dies before the Mac connects.
+  - `--reactivate` restores A94 after that.
+  - `--make-default` stops it for good. It points the backup boot header at A94 too, at
+    the price of losing the automatic fallback.
+    [Details](firmware/A94-REARM-TRIAL.md#making-a94-the-default-installed-2026-11-05).
 
 The radio presents itself to macOS as an Apple keyboard. That is how the native battery
 and key-map features get enabled.
@@ -82,8 +88,9 @@ The emulator tests use Python 3 with `unicorn`, `capstone` and `pyelftools`, plu
 
 ## Status
 
-- A94 runs permanently on the author's keyboard. Battery, F-row, media keys and Fn work,
-  and it survives power-off.
+- A94 is the only boot target on the author's keyboard (`--make-default`, 2026-11-05).
+  Battery, F-row, media keys and Fn work, it survives power-off and flat batteries, and
+  this keyboard no longer falls back to the original firmware automatically.
 - Battery life: the original pain was about 3–4 days per charge. With the scanner idle patch
   it now looks like about a week, going by the estimate described above. Work toward
   multi-week battery life is next.
