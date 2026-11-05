@@ -46,3 +46,17 @@ A meter averages the radio's millisecond pulses well enough for this.
   is already running; that boot has already re-armed. If the K2 reboots while the Mac's
   Bluetooth is off, turn Bluetooth back on and let it reconnect before switching the K2
   off. Otherwise the next power-on goes to A86.
+
+## Data point: 22% then dead overnight (2026-11-04/05)
+
+The owner saw 22% in the evening and found the keyboard dead the next morning. At
+4,000 mAh that would mean 880 mAh in about 8–10 hours, roughly 90–110 mA, which is
+4–5× the ~22 mA estimated average. So the 22% was almost certainly wrong. Likely causes,
+not yet separated:
+- the estimator's low end: Li-ion voltage falls off a cliff near empty, so a
+  voltage-to-percent table that is linear or tuned for a fresh cell reads high there;
+- reduced cell capacity (age), which shifts the whole curve;
+- the scanner's or radio's cutoff voltage sitting well above the cell's real empty.
+
+Use this when calibrating the percentage: the measured idle current lets us check how
+much charge was really left. Record the voltage at cutoff if possible.
