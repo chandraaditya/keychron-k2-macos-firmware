@@ -25,8 +25,8 @@ EXPECTED_MTU_RECOVERY_SHA='5d03eb3a15149fa3e95bb90213d7718d109daabc049ee46c8a6f1
 EXPECTED_FROW_TRIAL_SHA='0377c5cfedd96333fffa36285ca9fbbb8c5d973d85322dd700a818df8fe3106e'
 EXPECTED_FN_TRIAL_SHA='654fe4681b5065d7bdb9a1e204c1f6c205e37f731d1e47e65c76e9b6865097e3'
 EXPECTED_C6_TRIAL_SHA='91da3f425cae7939317ab6a25c3f5eedc445dbf5a99b4c2c78fb74f73f9583e2'
-EXPECTED_REARM_TRIAL_SHA='29eae9a92d741941b771d14a31e09ddc20219b5288b466c4a4a7a3731d5a75bf'
-REARM_MODES={'--apply-rearm-trial':'install','--rearm-a93':'rearm-a93','--rearm':'rearm','--unarm':'unarm'}
+EXPECTED_REARM_TRIAL_SHA='3f98a825b587269f6240b4a921960764f3984fe4dccda2c8a195067c51662b5a'
+REARM_MODES={'--apply-rearm-trial':'install','--rearm-a93':'rearm-a93','--rearm':'rearm','--unarm':'unarm','--reactivate':'reactivate'}
 EXPECTED_MTU_TRIAL_SHA='ca8d5f90bd7961eae6a8c8e192798de98e210ec6df3a111417a84d86fdf840ce'
 EXPECTED_KEYBOARD_CONFIG_TRIAL_SHA='72a9ee54c88019652590bec7c538df4e6a970f7db21e79fe6327e49f8118eb01'
 EXPECTED_KEYHOLE_TRIAL_SHA='0e7ae7b3cfc6e65fde14e1d1c25eadb09b918021072a5bcc237ac3d4674095a1'
@@ -92,7 +92,7 @@ def apply_trial(runtime,owner_uid,owner_gid):
 
 def main():
     if sys.argv[1:]not in (['--apply'],['--apply-phase1'],['--apply-rollback-preflight'],['--apply-wp-trial'],['--apply-apple-trial'],['--apply-keyhole-trial'],['--apply-keyboard-config-trial'],['--apply-mtu-trial'],['--apply-mtu-recovery'],['--apply-frow-trial'],['--apply-fn-trial'],['--apply-c6-trial'])and not(len(sys.argv)==2 and sys.argv[1] in REARM_MODES):
-        print('Usage: radio_admin_trial.py --apply|--apply-phase1|--apply-rollback-preflight|--apply-wp-trial|--apply-apple-trial|--apply-keyhole-trial|--apply-keyboard-config-trial|--apply-mtu-trial|--apply-mtu-recovery|--apply-frow-trial|--apply-fn-trial|--apply-c6-trial|--apply-rearm-trial|--rearm-a93|--rearm|--unarm',file=sys.stderr);return 2
+        print('Usage: radio_admin_trial.py --apply|--apply-phase1|--apply-rollback-preflight|--apply-wp-trial|--apply-apple-trial|--apply-keyhole-trial|--apply-keyboard-config-trial|--apply-mtu-trial|--apply-mtu-recovery|--apply-frow-trial|--apply-fn-trial|--apply-c6-trial|--apply-rearm-trial|--rearm-a93|--rearm|--unarm|--reactivate',file=sys.stderr);return 2
     if not sys.flags.isolated:
         raise RuntimeError('Use the isolated system interpreter; no device opened')
     if os.getuid()!=0 or os.geteuid()!=0:

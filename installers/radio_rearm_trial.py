@@ -10,6 +10,8 @@ host first reads the F1 keyboard configuration, so it survives power-off.
 
 rearm-a93 / rearm / unarm: with A93 or A94 already running from bank 0x4000,
 write only SS0 byte 0 (1 = boot the bank again, 0 = boot A86 from SS100).
+reactivate: A86 runs from 0x8000 because an A94 boot died before re-arming (for
+example a flat battery); bank 0x4000 still holds A94. Write only SS0 byte 0 = 1.
 The bank must already hold the exact image. The updater's inactivity reset
 then restarts the radio from the selected section.
 """
@@ -184,7 +186,7 @@ class BootByteRunner(previous.Runner):
             self.io.trace_context = None
 
 
-MODES = {'rearm-a93': (0x93, 1), 'rearm': (0x94, 1), 'unarm': (0x94, 0)}
+MODES = {'rearm-a93': (0x93, 1), 'rearm': (0x94, 1), 'unarm': (0x94, 0), 'reactivate': (0x94, 1)}
 
 
 def runtime_view(mode='install'):
@@ -198,7 +200,7 @@ def runtime_view(mode='install'):
                                      guard_context=guard_context, Journal=r.Journal,
                                      Runner=Runner, RESULT_NAME='radio-rearm-trial-flash-result.json')
     version, value = MODES[mode]
-    guard = running_guard(version, armed=not value)
+    guard = guard_context if mode == 'reactivate' else running_guard(version, armed=not value)
 
     def boot_byte_plan():
         return BootBytePlan(c6.Plan() if version == 0x93 else Plan(), version, value)

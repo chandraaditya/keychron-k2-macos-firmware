@@ -95,3 +95,11 @@ The owner skipped step 1 (`--rearm-a93`), so the in-band `--unarm` path is still
   work. Accepted.
 - Reconnect after power-on is ~0.8 s from ACL disconnect to ACL connect (bluetoothd
   log). The owner noticed it is much faster than before.
+
+## Flat battery fallback (2026-11-05)
+
+When the battery ran completely flat, the radio browned out and rebooted. One boot cleared
+SS0 byte 0 and died before the Mac read F1, so the next power-on booted A86. A94 was still
+intact in bank 0x4000. New mode `--reactivate`: A86 running from 0x8000, bank holding A94,
+byte 0 = 0. It writes only byte 0 = 1 (journal `radio-1793858974158797000`). After the
+reset: A94, byte 0 = 1, flag 2. Read-only state check: `python3 installers/probe_boot_state.py`.

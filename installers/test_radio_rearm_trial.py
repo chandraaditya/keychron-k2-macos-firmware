@@ -9,6 +9,19 @@ from test_radio_frow_trial import ChunkedDevice
 from test_radio_installer import MemoryJournal, selected
 
 
+def running_a86(dev):
+    """RAM fingerprints of A86 running from the fallback section."""
+    dev.ram[0x8f02:0x8f10] = bytes.fromhex('b125860ac0023230323631303238')
+    dev.ram[0x9014:0x9014 + 440] = (r.ROOT / 'private/candidates/radio-battery-phase1/extension.bin').read_bytes()
+    dev.ram[0x6aa8:0x6aac] = bytes.fromhex('02f0d3fa')
+    dev.ram[0x8ea8:0x8eac] = struct.pack('<I', 0x20c9d4)
+    dev.ram[0xc9d4:0xc9d8] = struct.pack('<I', 0x20d800)
+    methods = (0x28a9, 0x28dd, 0x209141, 0x209119, 0x209145, 0x2949,
+           0x296d, 0x298b, 0x298f, 0x2993, 0x29cd, 0x2a11, 0x2a2f, 0x2aaf, 0x2ac1)
+    dev.ram[0xd800:0xd83c] = struct.pack('<15I', *methods)
+    dev.ram[0x5e1c:0x5e20] = struct.pack('<I', 0x8000)
+
+
 class Tests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -19,15 +32,7 @@ class Tests(unittest.TestCase):
         dev = ChunkedDevice(plan)
         if eeprom is not None:
             dev.eeprom = bytearray(eeprom)
-        dev.ram[0x8f02:0x8f10] = bytes.fromhex('b125860ac0023230323631303238')
-        dev.ram[0x9014:0x9014 + 440] = (r.ROOT / 'private/candidates/radio-battery-phase1/extension.bin').read_bytes()
-        dev.ram[0x6aa8:0x6aac] = bytes.fromhex('02f0d3fa')
-        dev.ram[0x8ea8:0x8eac] = struct.pack('<I', 0x20c9d4)
-        dev.ram[0xc9d4:0xc9d8] = struct.pack('<I', 0x20d800)
-        methods = (0x28a9, 0x28dd, 0x209141, 0x209119, 0x209145, 0x2949,
-                   0x296d, 0x298b, 0x298f, 0x2993, 0x29cd, 0x2a11, 0x2a2f, 0x2aaf, 0x2ac1)
-        dev.ram[0xd800:0xd83c] = struct.pack('<15I', *methods)
-        dev.ram[0x5e1c:0x5e20] = struct.pack('<I', 0x8000)
+        running_a86(dev)
         journal = MemoryJournal()
         return dev, journal, m.Runner(dev, plan, journal)
 
@@ -139,8 +144,12 @@ class BootByteTests(unittest.TestCase):
         state[0x4000:0x4000 + len(plan.candidate)] = plan.candidate
         state[0] = 1 if (armed if armed is not None else plan.value == 0) else 0
         dev.eeprom = bytearray(eeprom if eeprom is not None else state)
-        dev.ram[0x8f02:0x8f10] = m.IDENTITY[version or plan.version]
-        dev.ram[0x5e1c:0x5e20] = struct.pack('<I', ds)
+        if mode == 'reactivate':
+            running_a86(dev)
+        if mode != 'reactivate' or version:
+            dev.ram[0x8f02:0x8f10] = m.IDENTITY[version or plan.version]
+        if mode != 'reactivate' or ds != 0x4000:
+            dev.ram[0x5e1c:0x5e20] = struct.pack('<I', 0x4000 if mode == 'reactivate' else ds)
         journal = MemoryJournal()
         return dev, journal, view.Runner(dev, plan, journal), plan
 
@@ -166,8 +175,11 @@ class BootByteTests(unittest.TestCase):
     def test_unarm_running_A94(self):
         self.check_one_byte('unarm', 1, 0, 'watchdog-reset-then-A86-unarmed-from-A94')
 
+    def test_reactivate_from_A86_after_an_unproven_A94_boot(self):
+        self.check_one_byte('reactivate', 0, 1, 'watchdog-reset-then-A94-rearmed')
+
     def test_wrong_runtime_or_storage_rejects_before_enable(self):
-        for mode in ['rearm-a93', 'rearm', 'unarm']:
+        for mode in ['rearm-a93', 'rearm', 'unarm', 'reactivate']:
             other = 0x94 if mode == 'rearm-a93' else 0x93
             cases = [dict(version=other), dict(ds=0x8000),
                      dict(armed=mode != 'unarm')]
